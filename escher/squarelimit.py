@@ -5,9 +5,7 @@ pp = pprint.pprint
 
 import math
 
-"""
-
-"""
+"""Eschers squarelimit in Python."""
 
 
 # scale factor for next smaller picture
@@ -17,13 +15,8 @@ smaller = 1 / math.sqrt(2)
 # global counter
 no_of_pictures = 0
 
-# unused
-types = {
-    1: "line",
-    2: "linesegments",
-    3: "curvesegments"}
-
 # debug options
+
 # draw a rectangle around picture
 dbg_frame = False
 
