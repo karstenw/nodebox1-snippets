@@ -8,21 +8,6 @@ kwdbg = 0
 r30 = math.radians( 30)
 c30 = math.cos( r30 )
 
-def angle(a, b):
-    #calculate the angle between two points
-    x0, y0 = a
-    x1, y1 = b
-    a = math.degrees( math.atan2(y1-y0, x1-x0) )
-    return a
-
-
-def distance( a, b ):
-    #calculate the distance between two points
-    dx = b[0] - a[0]
-    dy = b[1] - a[1]
-    return math.sqrt(dx * dx + dy * dy)
-
-
 # the reptile consists of 3 different segments; each used twice
 seg1 = (
     ( 0.0,  0.0),
@@ -80,8 +65,8 @@ def getsegment( segment, start, end, reverse):
             seg.append( (8.0-x, -y) )
         seg.reverse()
 
-    a = angle( start, end )
-    s = distance( start, end )
+    a = angle( start[0], start[1], end[0], end[1] )
+    s = distance( start[0], start[1], end[0], end[1] )
     r = math.radians( a )
     cosr = math.cos(r)
     sinr = math.sin(r)
@@ -296,9 +281,6 @@ def drawlines( lines, close=False):
     #nofill()
     drawpath( p )
 
-nofill()
-stroke(0)
-
 def inrect( px,py,rd,t,l,b,r):
     if px+rd < l or px-rd > r:
         return False
@@ -355,7 +337,11 @@ def tileReptiles( x,y, orientation, radius, hexType, *rectangle):
         rd = reptile( px, py, radius, 0, ps, hexType)
         drawlines( rd, 1 )
 
-#tileReptiles(720,450,0,120,True,0,0,900,1440)
-tileReptiles(720,450,0,60,True,0,0,900,1440)
+nofill()
+stroke(0)
+strokewidth(0.25)
+
+tileReptiles(720,450,0,120,True,0,0,900,1440)
+#tileReptiles(720,450,0,60,True,0,0,900,1440)
 #tileReptiles(720,450,0,30,True,0,0,900,1440)
 
