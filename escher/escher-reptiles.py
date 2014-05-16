@@ -1,5 +1,6 @@
-background(0.8)
-size(1440,900)
+# background(0.8)
+background(None)
+# size(1440,900)
 import math
 import pprint
 
