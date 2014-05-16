@@ -3,7 +3,7 @@ size(1440,900)
 import math
 import pprint
 
-kwdbg = 0
+debug = 1
 
 r30 = math.radians( 30)
 c30 = math.cos( r30 )
@@ -53,7 +53,7 @@ def getsegment( segment, start, end, reverse):
     
     # to achieve that, half of the segments need to be reversed.
 
-    if 0: #kwdbg:
+    if 0: #debug:
         segment = ( (0,0), (4,1), (4,-1), (8,0))
     seg = segment[:]
 
@@ -217,7 +217,7 @@ def reptile(x, y, radius, rot, shift, vert):
         result.extend( s )
 
     # debug stuff
-    if kwdbg:
+    if debug:
         push()
         nofill()
         stroke(0,0,1,0.5)
@@ -341,7 +341,9 @@ nofill()
 stroke(0)
 strokewidth(0.25)
 
-tileReptiles(720,450,0,120,True,0,0,900,1440)
-#tileReptiles(720,450,0,60,True,0,0,900,1440)
-#tileReptiles(720,450,0,30,True,0,0,900,1440)
+radius = 50
+frame = (100, 100,500,500 )
+x,y = frame[2] - frame[0], frame[3] - frame[1]
+
+tileReptiles(x, y, 0, radius, 1, *frame)
 
